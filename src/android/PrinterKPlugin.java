@@ -163,7 +163,7 @@ public class PrinterKPlugin extends CordovaPlugin {
 
   public void getStatus (CallbackContext callbackContext) {
     try {
-      callbackContext.success(extPrinterService.getPrinterStatus());
+      callbackContext.success(extPrinterService.updatePrinterState());
     } catch (RemoteException e) {
       e.printStackTrace();
       callbackContext.success( -1);;
@@ -173,7 +173,7 @@ public class PrinterKPlugin extends CordovaPlugin {
 
   public void printerInit() {
     try {
-      extPrinterService.printerInit();
+      extPrinterService.printerInit(callback);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -185,7 +185,7 @@ public class PrinterKPlugin extends CordovaPlugin {
       InputStream istr = null;
       istr = assetManager.open("www/assets/images/logo.png.webp");
       Bitmap bitmap = BitmapFactory.decodeStream(istr);
-      extPrinterService.printBitmap(bitmap, 0, callback);
+      extPrinterService.printBitmap(bitmap, callback);
       extPrinterService.lineWrap(1, callback);
       //extPrinterService.printText(text);
     } catch (Exception e) {
@@ -199,7 +199,7 @@ public class PrinterKPlugin extends CordovaPlugin {
         InputStream istr = null;
         istr = assetManager.open("www/assets/imgs/contactless_ind_pos.png.webp");
         Bitmap bitmap = BitmapFactory.decodeStream(istr);
-        extPrinterService.printBitmap(bitmap, 0, callback);
+        extPrinterService.printBitmap(bitmap, callback);
         extPrinterService.lineWrap(1, callback);
         //extPrinterService.printText(text);
       } catch (Exception e) {
@@ -250,7 +250,7 @@ public class PrinterKPlugin extends CordovaPlugin {
 
   public void alignmode(int type) {
     try {
-      extPrinterService.setAlignMode(type, callback);
+      extPrinterService.setAlignment(type, callback);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -258,7 +258,7 @@ public class PrinterKPlugin extends CordovaPlugin {
 
   public void fontzoom(int hor, int ver) {
     try {
-      extPrinterService.setFontZoom(hor, ver, callback);
+      extPrinterService.setFontSize(hor, callback);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -266,7 +266,7 @@ public class PrinterKPlugin extends CordovaPlugin {
 
   public void prixelwrap(int n) {
     try {
-      extPrinterService.pixelWrap(n, callback);
+      extPrinterService.lineWrap(n, callback);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -283,7 +283,7 @@ public class PrinterKPlugin extends CordovaPlugin {
 
   public void cutPaper(int mode, int distance) {
     try {
-      extPrinterService.cutPaper(mode, distance, callback);
+      extPrinterService.cutPaper(callback);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -305,6 +305,12 @@ public class PrinterKPlugin extends CordovaPlugin {
       public void onRaiseException(int code, final String msg)
               throws RemoteException {
         System.out.println("PRINTERK: " + code + " MSG: " + msg);
+      }
+
+      @Override
+      public void onPrintResult(int code, String msg) throws RemoteException {
+
+        System.out.println("PRINTERK Result: " + code + " MSG: " + msg);
       }
     };
 }
