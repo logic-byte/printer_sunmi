@@ -14,14 +14,9 @@
         <param name="onload" value="true" />
       </feature>
     </config-file>
-    <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <service android:name="com.sunmi.extprinterservice.ExtPrinterService">
-        <intent-filter>
-          <action android:name="com.sunmi.extprinterservice.ExtPrinterService" />
-        </intent-filter>
-      </service>
-    </config-file>
     <source-file src="src/android/PrinterKPlugin.java" target-dir="src/com/printerk/cordova/PrinterKPlugin" />
-    <source-file src="src/android/com/sunmi/extprinterservice/ExtPrinterService.aidl" target-dir="src/com/sunmi/extprinterservice/"/>
+    <source-file src="src/android/com/sunmi/trans/TransBean.aidl" target-dir="src/com/sunmi/trans/"/>
+    <source-file src="src/android/woyou/aidlservice/jiuiv5/IWoyouService.aidl" target-dir="src/woyou/aidlservice/jiuiv5/"/>
+    <source-file src="src/android/woyou/aidlservice/jiuiv5/iCallback.aidl" target-dir="src/woyou/aidlservice/jiuiv5/"/>
   </platform>
 </plugin>

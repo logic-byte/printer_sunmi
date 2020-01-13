@@ -71,8 +71,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import java.io.InputStream;
 
-import com.sunmi.extprinterservice.ExtPrinterService;
-
+import woyou.aidlservice.jiuiv5.ICallback;
+import woyou.aidlservice.jiuiv5.IWoyouService;
 /**
  * This class echoes a string called from JavaScript.
  */
@@ -95,8 +95,8 @@ public class PrinterKPlugin extends CordovaPlugin {
     Activity context = cordova.getActivity();
 
     Intent intent = new Intent();
-    intent.setPackage("com.sunmi.extprinterservice");
-    intent.setAction("com.sunmi.extprinterservice.PrinterService");
+    intent.setPackage("woyou.aidlservice.jiuiv5");
+		intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
     context.bindService(intent, connService, Context.BIND_AUTO_CREATE);
   }
 
