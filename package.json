@@ -1,0 +1,30 @@
+{
+  "name": "printerk1",
+  "version": "1.0.0",
+  "description": "Sunmi K1 printer solution",
+  "main": "www/printerk.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logic-byte/printerk1.git"
+  },
+  "keywords": [
+    "cordova",
+    "sunmi",
+    "k1"
+  ],
+  "author": "lbscanarias",
+  "license": "MIT",
+  "cordova": {
+    "id": "com.printerk.cordova",
+    "platforms": [
+        "android"
+    ]
+  },
+  "bugs": {
+     "url": "https://github.com/logic-byte/printerk1/issues"
+   },
+   "homepage": "https://github.com/logic-byte/printerk1#readme"
+}
