@@ -78,7 +78,7 @@ import woyou.aidlservice.jiuiv5.IWoyouService;
  */
 public class PrinterKPlugin extends CordovaPlugin {
   private static final String TAG = "printerk";
-  private ExtPrinterService extPrinterService = null;
+  private IWoyouService extPrinterService = null;
   private ServiceConnection connService = new ServiceConnection() {
     @Override
     public void onServiceDisconnected(ComponentName name) {
