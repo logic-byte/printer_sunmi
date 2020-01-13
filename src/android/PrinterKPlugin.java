@@ -86,7 +86,7 @@ public class PrinterKPlugin extends CordovaPlugin {
     }
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
-      extPrinterService = ExtPrinterService.Stub.asInterface(service);
+      extPrinterService = IWoyouService.Stub.asInterface(service);
     }
   };
 
