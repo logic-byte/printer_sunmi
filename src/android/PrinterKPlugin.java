@@ -255,7 +255,7 @@ public class PrinterKPlugin extends CordovaPlugin {
       e.printStackTrace();
     }
   }
-
+// Change Font Size
   public void fontzoom(int hor, int ver) {
     try {
       extPrinterService.setFontSize(hor, callback);
