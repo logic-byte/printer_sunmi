@@ -149,6 +149,9 @@ public class PrinterKPlugin extends CordovaPlugin {
     } else if (action.equals("linewrap")) {
       this.linewrap(args.getInt(0));
       return true;
+    } else if (action.equals("openDrawer")) {
+      this.openDrawer();
+      return true;
     }
     return false;
   }
@@ -288,6 +291,15 @@ public class PrinterKPlugin extends CordovaPlugin {
       e.printStackTrace();
     }
   }
+
+  public void openDrawer() {
+    try {
+        extPrinterService.openDrawer(callback);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+  }
+
 
     ICallback callback = new ICallback.Stub() {
 

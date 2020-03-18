@@ -14,6 +14,12 @@ exports.printerInit = function () {
   });
 },
 
+exports.openDrawer = function () {
+  return new Promise(function (resolve, reject) {
+    cordova.exec(resolve, reject, "PrinterKPlugin", "openDrawer", []);
+  });
+},
+
 exports.printLogo = function () {
   return new Promise(function (resolve, reject) {
     exec(resolve, reject, "PrinterKPlugin", "printLogo", []);
